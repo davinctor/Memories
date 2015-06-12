@@ -44,17 +44,27 @@ public abstract class AbstractDao<T> {
         return currentTransaction;
     }
 
-    public abstract void persist(T entity);
+    public void persist(T entity) {
+        getCurrentSession().persist(entity);
+    }
 
-    public abstract void update(T entity);
+    public void update(T entity) {
+        getCurrentSession().update(entity);
+    }
 
     public abstract T findById(Long id);
 
-    public abstract void delete(T entity);
+    public void delete(T entity) {
+        getCurrentSession().delete(entity);
+    }
 
     public abstract List<T> findAll();
 
-    public abstract void deleteAll();
+    public void deleteAll() {
+        List<T> list = findAll();
+        for (T obj : list)
+            delete(obj);
+    }
 
 }
 

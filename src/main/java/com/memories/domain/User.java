@@ -1,6 +1,8 @@
 package com.memories.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 @Table(name = "users")
@@ -20,8 +22,34 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "USER_NAME")
+    private String username;
+
     @Column(name = "role_of_user")
     private String roleOfUser;
+
+    @OneToMany(mappedBy = "user")
+    private Collection<Memory> memories;
+
+    public User() {
+        memories = new ArrayList<Memory>();
+    }
+
+    public Collection<Memory> getMemories() {
+        return memories;
+    }
+
+    public void setMemories(Collection<Memory> memories) {
+        this.memories = memories;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public String getLogin() {
         return login;
