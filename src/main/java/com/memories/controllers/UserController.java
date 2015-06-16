@@ -15,7 +15,7 @@ public class UserController {
     @Autowired
     private UsersService usersService;
 
-    @RequestMapping(value = "/ulogin", method = RequestMethod.GET )
+    @RequestMapping( value = "/ulogin", method = RequestMethod.GET )
     @ResponseBody
     public User userByLogin(@RequestParam(value="login") String login) {
         User user = usersService.findByLogin(login);
@@ -23,7 +23,7 @@ public class UserController {
         return user;
     }
 
-    @RequestMapping(value = "/uid", method = RequestMethod.GET )
+    @RequestMapping( value = "/uid", method = RequestMethod.GET )
     @ResponseBody
     public User userById(@RequestParam(value="id") Long id) {
         User user = usersService.findById(id);

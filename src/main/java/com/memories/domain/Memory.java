@@ -3,6 +3,7 @@ package com.memories.domain;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "memories")
@@ -80,5 +81,13 @@ public class Memory {
 
     public void setPictures(Collection<Picture> pictures) {
         this.pictures = pictures;
+    }
+
+    // This is extra list to store urls of memory pictures
+    public List<String> getPicturesUrls() {
+        List<String> urls = new ArrayList<String>(pictures.size());
+        for (Picture p : pictures)
+            urls.add(p.getUrl());
+        return urls;
     }
 }

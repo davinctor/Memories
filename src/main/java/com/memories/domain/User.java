@@ -22,8 +22,11 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "USER_NAME")
+    @Column(name = "user_name")
     private String username;
+
+    @Column(name = "photo_url")
+    private String photoUrl;
 
     @Column(name = "role_of_user")
     private String roleOfUser;
@@ -61,7 +64,6 @@ public class User {
 
     public Long getId() {
         return id;
-
     }
 
     public void setId(Long id) {
@@ -82,6 +84,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     public String getRoleOfUser() {
